@@ -1,0 +1,25 @@
+basePath: /
+host: localhost:8080
+info:
+  contact: {}
+  description: Go Template
+  title: Task API
+  version: "1.0"
+paths:
+  /v1/health:
+    get:
+      consumes:
+      - application/json
+      description: Check application availability and service status
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Health check endpoint
+      tags:
+      - Health
+swagger: "2.0"
