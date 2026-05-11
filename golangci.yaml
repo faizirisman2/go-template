@@ -1,0 +1,52 @@
+---
+version: "2"
+
+linters:
+  default: standard
+  exclusions:
+    generated: strict
+    warn-unused: true
+    presets:
+      - comments
+      - std-error-handling
+      - common-false-positives
+      - legacy
+
+settings:
+  depguard:
+    rules:
+      main:
+        list-mode: lax
+        files:
+          - "!**/*_a _file.go"
+        allow: []
+        deny:
+          - pkg: "github.com/pkg/errors"
+            desc: Should be replaced by standard lib errors package
+
+issues:
+  max-issues-per-linter: 50
+  max-same-issues: 3
+  uniq-by-line: true
+  new: false
+  new-from-merge-base: ""
+  new-from-rev: ""
+  new-from-patch: ""
+  whole-files: false
+  fix: false
+
+run:
+  timeout: 5m
+  relative-path-mode: gomod
+  issues-exit-code: 2
+  tests: true
+  build-tags: []
+  modules-download-mode: readonly
+  allow-parallel-runners: true
+  allow-serial-runners: true
+  go: '1.24'
+  concurrency: 4
+
+severity:
+  default: error
+  rules: []

@@ -37,7 +37,7 @@ func LoadConfig() *Config {
 	viper.AddConfigPath(".")
 	err := viper.ReadInConfig()
 	if err != nil {
-		log.Error(fmt.Errorf("Fatal error config file: %s \n", err))
+		log.Error(fmt.Errorf("fatal error config file: %s", err))
 		return nil
 	}
 
