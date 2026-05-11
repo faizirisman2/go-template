@@ -12,7 +12,6 @@ import (
 // @title Task API
 // @version 1.0
 // @description Go Template
-// @host localhost:8080
 // @BasePath /
 
 func main() {
